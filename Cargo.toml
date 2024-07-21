@@ -1,0 +1,7 @@
+[package]
+name = "stiff_http_server_from_TCP_scratch"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+chrono = "0.4"
