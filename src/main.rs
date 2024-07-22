@@ -41,7 +41,7 @@ fn handle_client(mut stream: TcpStream) {
 }
 
 fn main() {
-    let listener = TcpListener::bind("127.0.0.1:7878").expect("Could not bind");
+    let listener = TcpListener::bind("0.0.0.0:7878").expect("Could not bind");
     for stream in listener.incoming() {
         match stream {
             Ok(stream) => {
