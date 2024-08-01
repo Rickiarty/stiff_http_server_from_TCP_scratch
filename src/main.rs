@@ -21,6 +21,7 @@ fn handle_client(mut stream: TcpStream) {
             return;
         },
     };
+    println!("\n解碼前的 request byte array：\n{:?}\n\n*========*\n", request.as_bytes());
     println!("\nHTTP request：\n\n{}\n\n[C]======>[S]\n", request);
 
     let response_body = "<!DOCTYPE html>\n<html>\n<head>\n  <title>An Example Page</title>\n</head>\n<body>\n  Hello, world!\n</body>\n</html>";
@@ -30,7 +31,7 @@ fn handle_client(mut stream: TcpStream) {
     let res_bytes = response.as_bytes();
 
     println!("\nHTTP response：\n\n{}\n\n[C]<=======[S]\n", response);
-    println!("\n編碼後的 byte array：\n{:?}\n\n*========*\n", res_bytes);
+    println!("\n編碼後的 response byte array：\n{:?}\n\n*========*\n", res_bytes);
 
     if let Err(e) = stream.write_all(&res_bytes) {
         eprintln!("\n寫入 socket 失敗：{}\n", e);
